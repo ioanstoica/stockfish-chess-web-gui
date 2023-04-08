@@ -36,6 +36,18 @@ $('#btn-switch-sides').on('click', function () {
 // Save PGN string popup
 
 $('#btn-save-pgn').on('click', function () {
+  fetch('https://4f0b0b47-0f61-47a3-8d59-d37a76077520.mock.pstmn.io/api/fen', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      fen: game.fen()
+    })
+  });
+
+
   if ($('#board-save-pgn-area').hasClass('hidden')) {
     $('#board-load-fen-area, #board-load-pgn-area').addClass('hidden');
     $('#board-save-pgn-area').removeClass('hidden');
